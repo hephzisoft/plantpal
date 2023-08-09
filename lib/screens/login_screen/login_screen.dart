@@ -55,24 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  child: const Text('Login'),
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
-                  },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-// Change your radius here
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
-                )),
+          
           ],
         ),
       )),
