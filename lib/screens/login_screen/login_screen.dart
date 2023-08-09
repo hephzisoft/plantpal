@@ -14,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -36,7 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   controller: nameController,
                   decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
                     labelText: 'Email',
                   ),
                 ),
@@ -49,13 +51,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   controller: nameController,
                   decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
                     labelText: 'Password',
                   ),
                 ),
               ),
             ),
-          
+            Container(
+                height: 50,
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        // Change your radius here
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                  ),
+                  child: const Text('Login'),
+                )),
           ],
         ),
       )),

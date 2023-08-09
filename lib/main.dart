@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'config/theme/theme.dart';
-import 'screens/home_screen/home.dart';
+// import 'screens/home_screen/home.dart';
 import 'screens/login_screen/login_screen.dart';
+import 'screens/splash_screen/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +18,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (ctx) => const HomeScreen(),
-
-        LoginScreen.routeName : (ctx)=> const LoginScreen(),
-
+        '/': (ctx) => const SplashScreen(),
+        LoginScreen.routeName: (ctx) => const LoginScreen(),
       },
       theme: AppTheme.apptheme,
     );
