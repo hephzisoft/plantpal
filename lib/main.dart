@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen/home.dart';
+import 'screens/login_screen/login_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +15,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '': (ctx) => const HomeScreen(),
+        '/': (ctx) => const HomeScreen(),
+        LoginScreen.routeName : (ctx)=> const LoginScreen(),
       },
     );
   }
