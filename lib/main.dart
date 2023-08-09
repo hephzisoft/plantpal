@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'config/theme/theme.dart';
 import 'screens/home_screen/home.dart';
+import 'screens/login_screen/login_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (ctx) => const HomeScreen(),
+
+        LoginScreen.routeName : (ctx)=> const LoginScreen(),
+
       },
       theme: AppTheme.apptheme,
     );
