@@ -17,8 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 5), () {
-      Navigator.pushNamed(context, '/home');
+    _timer = Timer(const Duration(seconds: 2), () {
+      Navigator.pushNamed(context, '/sign-up');
     });
   }
 
@@ -33,9 +33,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: SafeArea(
         child: Stack(
+          
           children: [
             Positioned(
-              top: 30,
+              top: 0,
               right: 10,
               child: Image.asset(top_splash_screen),
             ),
