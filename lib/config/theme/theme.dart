@@ -7,15 +7,20 @@ class AppTheme {
   static var apptheme = ThemeData(
       useMaterial3: true,
       fontFamily: 'poppins',
+      focusColor: Colors.grey,
       textTheme: AppTextTheme.textTheme,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         primary: primaryColor,
         background: Colors.white,
+
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: primaryColor,
         titleTextStyle: AppTextTheme.textTheme.titleMedium!.copyWith(
           color: Colors.white,
         ),
-      ));
+        
+      ),
+      
+      );
 }
