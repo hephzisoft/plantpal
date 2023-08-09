@@ -5,11 +5,17 @@ import 'text_theme.dart';
 
 class AppTheme {
   static var apptheme = ThemeData(
-    useMaterial3: true,
-    fontFamily: 'poppins',
-    textTheme: AppTextTheme.textTheme,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: primaryColor,
-    ),
-  );
+      useMaterial3: true,
+      fontFamily: 'poppins',
+      textTheme: AppTextTheme.textTheme,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: primaryColor,
+        background: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: primaryColor,
+        titleTextStyle: AppTextTheme.textTheme.titleMedium!.copyWith(
+          color: Colors.white,
+        ),
+      ));
 }
