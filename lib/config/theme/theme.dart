@@ -6,9 +6,10 @@ import 'text_theme.dart';
 class AppTheme {
   static var apptheme = ThemeData(
     useMaterial3: true,
+    fontFamily: 'poppins',
     textTheme: AppTextTheme.textTheme,
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: primaryColor,
-    )
+    ),
   );
 }
