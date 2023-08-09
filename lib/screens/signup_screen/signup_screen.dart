@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../../config/image_string.dart';
-import '../signup_screen/signup_screen.dart';
+import '../login_screen/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
-  static const routeName = '/login';
+  static const routeName = '/sign-up';
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     final screen_height = MediaQuery.of(context).size.height;
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Sign in',
+                          'Create an account',
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                       ),
@@ -49,9 +49,27 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              textCapitalization: TextCapitalization.words,
+                              decoration: const InputDecoration(
+                                labelText: 'Full name',
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                ),
+                              ),
+                            ),
+                            TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               decoration: const InputDecoration(
                                 labelText: 'Email',
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                ),
+                              ),
+                            ),
+                            TextFormField(
+                              keyboardType: TextInputType.streetAddress,
+                              decoration: const InputDecoration(
+                                labelText: 'Address',
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
@@ -76,12 +94,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: double.infinity,
                         child: FilledButton(
                           onPressed: () {},
-                          child: const Text('SIGN IN'),
+                          child: const Text('SIGN UP'),
                         ),
                       ),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text('Forget Password?'))
                     ],
                   ),
                 ),
@@ -90,12 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: screen_height * 0.15,
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const Text('Don\'t have an account? '),
+                  const Text('Already have an account?'),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(SignupScreen.routeName);
+                      Navigator.of(context).pushNamed(LoginScreen.routeName);
                     },
-                    child: const Text('Sign up'),
+                    child: const Text('Sign in'),
                   )
                 ]),
               ),

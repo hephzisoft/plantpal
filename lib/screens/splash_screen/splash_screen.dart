@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../config/image_string.dart';
+import '../signup_screen/signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 5), () {
-      Navigator.pushNamed(context, '/home');
+    _timer = Timer(const Duration(seconds: 2), () {
+      Navigator.pushNamed(context, SignupScreen.routeName);
     });
   }
 
@@ -35,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Stack(
           children: [
             Positioned(
-              top: 30,
+              top: 0,
               right: 10,
               child: Image.asset(top_splash_screen),
             ),
