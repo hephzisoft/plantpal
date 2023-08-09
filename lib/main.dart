@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'config/theme/theme.dart';
 import 'screens/home_screen/home.dart';
 
 void main() {
@@ -14,8 +15,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '': (ctx) => const HomeScreen(),
+        '/': (ctx) => const HomeScreen(),
       },
+      theme: AppTheme.apptheme,
     );
   }
 }
