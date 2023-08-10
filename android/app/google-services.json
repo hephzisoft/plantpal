@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078568301244",
+    "project_id": "com-techwiz4-plantpal",
+    "storage_bucket": "com-techwiz4-plantpal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078568301244:android:35df5242c593b1632b56b9",
+        "android_client_info": {
+          "package_name": "com.example.plantpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078568301244-jpku4dc3vg3r1udc0l4fadkkmcnv8f34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-FoxHCmZvUf2N7TrLVOoppldB89Zb3as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078568301244-jpku4dc3vg3r1udc0l4fadkkmcnv8f34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

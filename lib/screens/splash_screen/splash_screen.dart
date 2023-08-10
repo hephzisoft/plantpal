@@ -33,16 +33,19 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            Positioned(
-              top: 0,
-              right: 10,
+            Container(
               child: Image.asset(top_splash_screen),
             ),
             const Center(
               child: Text('Loading...'),
             ),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, SignupScreen.routeName);
+                },
+                child: const Text('continue'))
           ],
         ),
       ),
