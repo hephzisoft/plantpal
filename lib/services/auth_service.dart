@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 import '../models/user_model.dart';
@@ -21,6 +22,10 @@ class AuthService {
   Future<User?> signInWithEmailAndPassword(
     String email,
     String password,
+    String fullName,
+    String age,
+    String address,
+    String gender,
   ) async {
     try {
       final credential = await _firebaseAuth.signInWithEmailAndPassword(
@@ -28,8 +33,24 @@ class AuthService {
         password: password,
       );
 
+      final user = User(
+        uid: credential.user!.uid,
+        fullName: fullName,
+        address: address,
+        email: credential.user!.email as String,
+        age: age,
+        gender: gender,
+      );
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .set(user.toMap());
+
       return _userFromFirebase(credential.user);
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   }
 
   Future<User?> createUserWithEmailAndPassword(
@@ -43,7 +64,9 @@ class AuthService {
       );
 
       return _userFromFirebase(credential.user);
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   }
 
   Future<void> signOut() async {

@@ -1,4 +1,6 @@
-class User {
+import 'package:flutter/foundation.dart';
+
+class User extends ChangeNotifier {
   final String uid;
   final String? fullName;
   final String? address;
@@ -14,4 +16,15 @@ class User {
     this.age,
     this.gender,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'uid': uid,
+      'fullName': fullName,
+      'address': address,
+      'email': email,
+      'age': age,
+      'gender': gender,
+    };
+  }
 }
