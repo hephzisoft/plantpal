@@ -22,10 +22,6 @@ class AuthService {
   Future<User?> signInWithEmailAndPassword(
     String email,
     String password,
-    String fullName,
-    String age,
-    String address,
-    String gender,
   ) async {
     try {
       final credential = await _firebaseAuth.signInWithEmailAndPassword(
@@ -33,6 +29,25 @@ class AuthService {
         password: password,
       );
 
+      return _userFromFirebase(credential.user);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<User?> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+    required String fullName,
+    required String age,
+    required String address,
+    required String gender,
+  }) async {
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       final user = User(
         uid: credential.user!.uid,
         fullName: fullName,
@@ -46,23 +61,6 @@ class AuthService {
           .collection('users')
           .doc(user.uid)
           .set(user.toMap());
-
-      return _userFromFirebase(credential.user);
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  Future<User?> createUserWithEmailAndPassword(
-    String email,
-    String password,
-  ) async {
-    try {
-      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
       return _userFromFirebase(credential.user);
     } catch (error) {
       throw error;

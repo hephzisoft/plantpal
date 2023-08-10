@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/image_string.dart';
+import '../../services/auth_service.dart';
 import '../login_screen/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -13,6 +15,30 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final _form = GlobalKey<FormState>();
+  String? fullName;
+  String? address;
+  String? email;
+  String? password;
+  String? age;
+  String? gender;
+
+  void _register() {
+    final isValid = _form.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _form.currentState!.save();
+    Provider.of<AuthService>(context, listen: false)
+        .createUserWithEmailAndPassword(
+            address: address!,
+            age: age!,
+            email: email!,
+            fullName: fullName!,
+            gender: gender!,
+            password: password!);
+  }
+
   @override
   Widget build(BuildContext context) {
     final screen_height = MediaQuery.of(context).size.height;
@@ -30,7 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SizedBox(
                 width: double.infinity,
-                height: screen_height * 0.5,
+                height: screen_height * 0.55,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
@@ -46,6 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         height: 20,
                       ),
                       Form(
+                        key: _form,
                         child: Column(
                           children: [
                             TextFormField(
@@ -56,6 +83,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: (value) {
+                                fullName = value;
+                              },
                             ),
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
@@ -65,6 +95,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: (value) {
+                                email = value;
+                              },
                             ),
                             TextFormField(
                               keyboardType: TextInputType.streetAddress,
@@ -74,6 +107,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: (value) {
+                                address = value;
+                              },
                             ),
                             TextFormField(
                               keyboardType: TextInputType.visiblePassword,
@@ -83,17 +119,66 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: (value) {
+                                password = value;
+                              },
                             ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Flexible(
+                                  fit: FlexFit.tight,
+                                  child: DropdownButton(
+                                    padding: const EdgeInsets.only(top: 30),
+                                    hint: const Text('Gender'),
+                                    items: const [
+                                      DropdownMenuItem(
+                                        value: 'male',
+                                        child: Text('Male'),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: 'female',
+                                        child: Text('Female'),
+                                      ),
+                                    ],
+                                    onChanged: (value) {
+                                      setState(() {
+                                        gender = value;
+                                      });
+                                    },
+                                    value: gender,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Flexible(
+                                  fit: FlexFit.tight,
+                                  child: TextFormField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Age',
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.grey),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 10,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: FilledButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _register();
+                          },
                           child: const Text('SIGN UP'),
                         ),
                       ),
@@ -102,7 +187,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               SizedBox(
-                height: screen_height * 0.15,
+                height: screen_height * 0.10,
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text('Already have an account?'),
