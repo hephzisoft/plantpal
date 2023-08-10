@@ -28,6 +28,14 @@ class _SignupScreenState extends State<SignupScreen> {
     if (!isValid) {
       return;
     }
+    if (address == null &&
+        fullName == null &&
+        age == null &&
+        gender == null &&
+        password == null &&
+        email == null) {
+      return;
+    }
     _form.currentState!.save();
     Provider.of<AuthService>(context, listen: false)
         .createUserWithEmailAndPassword(
@@ -163,6 +171,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                             BorderSide(color: Colors.grey),
                                       ),
                                     ),
+                                    onSaved: ((value) {
+                                      age = value;
+                                    }),
                                   ),
                                 ),
                               ],

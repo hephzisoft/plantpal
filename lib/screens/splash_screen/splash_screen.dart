@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/image_string.dart';
+import '../../services/auth_service.dart';
 import '../home_screen/home_screen.dart';
-import '../signup_screen/signup_screen.dart';
+// import '../signup_screen/signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -44,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, SignupScreen.routeName);
+                  Provider.of<AuthService>(context, listen: false).signOut();
                 },
                 child: const Text('continue'))
           ],

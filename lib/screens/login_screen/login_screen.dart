@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plantpal/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/image_string.dart';
 import '../signup_screen/signup_screen.dart';
@@ -13,6 +15,24 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _form = GlobalKey<FormState>();
+  String? email;
+  String? password;
+
+  void _login() async {
+    final isValid = _form.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _form.currentState!.save();
+    if (password == null && email == null) {
+      return;
+    }
+    final response = await Provider.of<AuthService>(context, listen: false)
+        .signInWithEmailAndPassword(email!, password!);
+    print(response);
+  }
+
   @override
   Widget build(BuildContext context) {
     final screen_height = MediaQuery.of(context).size.height;
@@ -46,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 20,
                       ),
                       Form(
+                        key: _form,
                         child: Column(
                           children: [
                             TextFormField(
@@ -56,6 +77,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: ((value) {
+                                email = value;
+                              }),
                             ),
                             TextFormField(
                               keyboardType: TextInputType.visiblePassword,
@@ -65,6 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderSide: BorderSide(color: Colors.grey),
                                 ),
                               ),
+                              onSaved: ((value) {
+                                password = value;
+                              }),
                             ),
                           ],
                         ),
@@ -75,7 +102,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: FilledButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _login();
+                          },
                           child: const Text('SIGN IN'),
                         ),
                       ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
@@ -31,8 +33,9 @@ class AuthService {
 
       return _userFromFirebase(credential.user);
     } catch (error) {
-      throw error;
+      log(error.toString());
     }
+    return null;
   }
 
   Future<User?> createUserWithEmailAndPassword({
@@ -61,10 +64,12 @@ class AuthService {
           .collection('users')
           .doc(user.uid)
           .set(user.toMap());
+
       return _userFromFirebase(credential.user);
     } catch (error) {
-      throw error;
+      log(error.toString());
     }
+    return null;
   }
 
   Future<void> signOut() async {
