@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:252047642311:ios:47e488614bf2c3d9b7f8e2",
-  "FIREBASE_PROJECT_ID": "com-techwiz4-plantpal-cb3a9",
-  "GCM_SENDER_ID": "252047642311"
+  "GOOGLE_APP_ID": "1:883288807598:ios:e8c8bc1be6c44f6ee3f53f",
+  "FIREBASE_PROJECT_ID": "com-techwiz-plantpal",
+  "GCM_SENDER_ID": "883288807598"
 }

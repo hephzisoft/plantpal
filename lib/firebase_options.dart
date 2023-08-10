@@ -47,30 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBXslrL32pEX3w42K3n17elKBGCUBUEey0',
-    appId: '1:252047642311:web:083091382f14aa43b7f8e2',
-    messagingSenderId: '252047642311',
-    projectId: 'com-techwiz4-plantpal-cb3a9',
-    authDomain: 'com-techwiz4-plantpal-cb3a9.firebaseapp.com',
-    storageBucket: 'com-techwiz4-plantpal-cb3a9.appspot.com',
-    measurementId: 'G-B0B8S04X0G',
+    apiKey: 'AIzaSyB7ZexT2J08c6F8WSVioeAhv49CQUjDsMA',
+    appId: '1:883288807598:web:957a15f03e2da2ede3f53f',
+    messagingSenderId: '883288807598',
+    projectId: 'com-techwiz-plantpal',
+    authDomain: 'com-techwiz-plantpal.firebaseapp.com',
+    storageBucket: 'com-techwiz-plantpal.appspot.com',
+    measurementId: 'G-NBDFN2PXSB',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDmwWTMKcEW0Uxo8mIMt1zrVHcEdxHuCvA',
-    appId: '1:252047642311:android:6b55dfe0da5b93f3b7f8e2',
-    messagingSenderId: '252047642311',
-    projectId: 'com-techwiz4-plantpal-cb3a9',
-    storageBucket: 'com-techwiz4-plantpal-cb3a9.appspot.com',
+    apiKey: 'AIzaSyDO0l-m5b53Akw1tneWbBwahmTQYvQPnbo',
+    appId: '1:883288807598:android:5282e42a3927e9ffe3f53f',
+    messagingSenderId: '883288807598',
+    projectId: 'com-techwiz-plantpal',
+    storageBucket: 'com-techwiz-plantpal.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAopzo2uuNMMD_mJ4Av4iMK_nuw3GC5_nM',
-    appId: '1:252047642311:ios:47e488614bf2c3d9b7f8e2',
-    messagingSenderId: '252047642311',
-    projectId: 'com-techwiz4-plantpal-cb3a9',
-    storageBucket: 'com-techwiz4-plantpal-cb3a9.appspot.com',
-    iosClientId: '252047642311-8af4ltrs9km86cq8mbnd0jpc3pca73s5.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDSzolKhdmKZTwx_VBuxpClAoLl2Gt1Y_Q',
+    appId: '1:883288807598:ios:e8c8bc1be6c44f6ee3f53f',
+    messagingSenderId: '883288807598',
+    projectId: 'com-techwiz-plantpal',
+    storageBucket: 'com-techwiz-plantpal.appspot.com',
+    iosClientId: '883288807598-hr9a09fpath5a0efdlekck3m2vtlidbs.apps.googleusercontent.com',
     iosBundleId: 'com.example.plantpal',
   );
 }

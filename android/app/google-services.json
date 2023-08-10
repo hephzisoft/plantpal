@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "252047642311",
-    "project_id": "com-techwiz4-plantpal-cb3a9",
-    "storage_bucket": "com-techwiz4-plantpal-cb3a9.appspot.com"
+    "project_number": "883288807598",
+    "project_id": "com-techwiz-plantpal",
+    "storage_bucket": "com-techwiz-plantpal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:252047642311:android:6b55dfe0da5b93f3b7f8e2",
+        "mobilesdk_app_id": "1:883288807598:android:5282e42a3927e9ffe3f53f",
         "android_client_info": {
           "package_name": "com.example.plantpal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "252047642311-8nb2ah4qliq99hqmd649of1pij2v2tjc.apps.googleusercontent.com",
+          "client_id": "883288807598-jslm7hak4lk0c8q7bcc5du59ma9e2f92.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDmwWTMKcEW0Uxo8mIMt1zrVHcEdxHuCvA"
+          "current_key": "AIzaSyDO0l-m5b53Akw1tneWbBwahmTQYvQPnbo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "252047642311-8nb2ah4qliq99hqmd649of1pij2v2tjc.apps.googleusercontent.com",
+              "client_id": "883288807598-jslm7hak4lk0c8q7bcc5du59ma9e2f92.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
