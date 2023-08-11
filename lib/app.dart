@@ -6,6 +6,7 @@ import 'models/user_model.dart';
 import 'screens/login_screen/login_screen.dart';
 import 'screens/signup_screen/signup_screen.dart';
 
+import 'screens/tab_screen/tab_screen.dart';
 import 'screens/verify_email/verify_email_screen.dart';
 import 'services/auth_service.dart';
 
@@ -28,6 +29,7 @@ class App extends StatelessWidget {
           LoginScreen.routeName: (ctx) => const LoginScreen(),
           SignupScreen.routeName: (ctx) => const SignupScreen(),
           VerifyEmailScreen.routeName: (ctx) => const VerifyEmailScreen(),
+          TabScreen.routeName: (ctx) => TabScreen(),
         },
         theme: AppTheme.apptheme,
       ),
@@ -49,7 +51,7 @@ class Wrapper extends StatelessWidget {
           if (user == null) {
             return const LoginScreen();
           } else {
-            return VerifyEmailScreen();
+            return const VerifyEmailScreen();
           }
         } else {
           return const Scaffold(

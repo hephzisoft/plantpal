@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/auth_service.dart';
-import '../home_screen/home_screen.dart';
+import '../login_screen/login_screen.dart';
+import '../tab_screen/tab_screen.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
   const VerifyEmailScreen({super.key});
@@ -21,6 +22,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   Timer? timer;
   @override
   void initState() {
+    if (user == null) {
+      Navigator.of(context).pushNamed(LoginScreen.routeName);
+    }
     isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
     if (!isEmailVerified) {
       Provider.of<AuthService>(context, listen: false)
@@ -47,13 +51,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     if (isEmailVerified) {
       timer?.cancel();
     }
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return isEmailVerified
-        ? const HomeScreen()
+        ? TabScreen()
         : const Scaffold(
             body: Center(child: Text('verify email Screen')),
           );

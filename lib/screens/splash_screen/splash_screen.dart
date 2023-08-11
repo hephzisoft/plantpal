@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:plantpal/screens/tab_screen/tab_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/image_string.dart';
 import '../../services/auth_service.dart';
-import '../home_screen/home_screen.dart';
 // import '../signup_screen/signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _timer = Timer(const Duration(seconds: 2), () {
-      Navigator.pushNamed(context, HomeScreen.routeName);
+      Navigator.pushNamed(context, TabScreen.routeName);
     });
   }
 
