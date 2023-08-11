@@ -56,7 +56,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return isEmailVerified
-        ? TabScreen()
+        ? const TabScreen()
         : const Scaffold(
             body: Center(child: Text('verify email Screen')),
           );

@@ -39,9 +39,8 @@ class _TabScreenState extends State<TabScreen> {
     return Scaffold(
       body: _pages![_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Theme.of(context).colorScheme.primary,
-        selectedItemColor: Colors.grey,
-
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,
         // backgroundColor: Theme.of(context).colorScheme.primary,

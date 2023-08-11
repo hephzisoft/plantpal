@@ -15,9 +15,11 @@ class AppTheme {
       secondary: Colors.red,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: primaryColor,
       titleTextStyle: AppTextTheme.textTheme.titleMedium!.copyWith(
-        color: Colors.white,
+        color: Colors.black,
+        fontWeight: FontWeight.w600,
+        letterSpacing: 3,
+        fontSize: 20,
       ),
     ),
     // inputDecorationTheme:

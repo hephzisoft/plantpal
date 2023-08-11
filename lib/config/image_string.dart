@@ -6,3 +6,7 @@ const bottom_splash_screen = 'assets/images/splash_screen_bottom.jpeg';
 // Logo
 
 const logo = 'assets/images/logo/logo.png';
+
+// Home Screen
+
+const seed_image = 'assets/images/pics1.png';

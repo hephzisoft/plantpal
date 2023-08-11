@@ -10,7 +10,7 @@ class FavoriteScreen extends StatelessWidget {
         title: const Text('Favorite'),
         centerTitle: true,
       ),
-      body: Text('Profile screen'),
+      body: const Text('Profile screen'),
     );
   }
 }
