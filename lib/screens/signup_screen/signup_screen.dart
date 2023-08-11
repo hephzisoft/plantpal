@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../config/image_string.dart';
 import '../../services/auth_service.dart';
 import '../login_screen/login_screen.dart';
+import '../verify_email/verify_email_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -23,7 +24,7 @@ class _SignupScreenState extends State<SignupScreen> {
   String? age;
   String? gender;
 
-  void _register() {
+  void _register() async {
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
@@ -37,7 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
       return;
     }
     _form.currentState!.save();
-    Provider.of<AuthService>(context, listen: false)
+    await Provider.of<AuthService>(context, listen: false)
         .createUserWithEmailAndPassword(
             address: address!,
             age: age!,
@@ -45,6 +46,8 @@ class _SignupScreenState extends State<SignupScreen> {
             fullName: fullName!,
             gender: gender!,
             password: password!);
+    Future.delayed(Duration.zero).then((value) =>
+        Navigator.of(context).pushNamed(VerifyEmailScreen.routeName));
   }
 
   @override

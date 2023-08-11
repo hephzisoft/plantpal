@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../config/image_string.dart';
 import '../signup_screen/signup_screen.dart';
+import '../verify_email/verify_email_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -28,9 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
     if (password == null && email == null) {
       return;
     }
-    final response = await Provider.of<AuthService>(context, listen: false)
+    await Provider.of<AuthService>(context, listen: false)
         .signInWithEmailAndPassword(email!, password!);
-    print(response);
+    Future.delayed(Duration.zero).then((value) =>
+        Navigator.of(context).pushNamed(VerifyEmailScreen.routeName));
   }
 
   @override

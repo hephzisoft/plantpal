@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+// import 'package:flutter/material.dart';
 
 import '../models/user_model.dart';
 
@@ -66,7 +67,7 @@ class AuthService {
           .set(user.toMap());
 
       return _userFromFirebase(credential.user);
-    } catch (error) {
+    } on auth.FirebaseAuthException catch (error) {
       log(error.toString());
     }
     return null;
@@ -75,4 +76,15 @@ class AuthService {
   Future<void> signOut() async {
     return await _firebaseAuth.signOut();
   }
+
+  Future<void> sendEmailVerification(auth.User user) async {
+    try {
+      await user.sendEmailVerification();
+      log('Email verification sent');
+    } catch (error) {
+      log(error.toString());
+    }
+  }
+
+
 }

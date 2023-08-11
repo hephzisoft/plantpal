@@ -14,7 +14,9 @@ class HomeScreen extends StatelessWidget {
           Row(
             children: [],
           ),
-          Container(),
+          Container(
+            child: Text('Hello welcome to this app'),
+          ),
           Container(),
           Container(),
         ]),

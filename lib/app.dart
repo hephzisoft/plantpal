@@ -5,7 +5,8 @@ import 'config/theme/theme.dart';
 import 'models/user_model.dart';
 import 'screens/login_screen/login_screen.dart';
 import 'screens/signup_screen/signup_screen.dart';
-import 'screens/splash_screen/splash_screen.dart';
+
+import 'screens/verify_email/verify_email_screen.dart';
 import 'services/auth_service.dart';
 
 class App extends StatelessWidget {
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
           '/': (ctx) => const Wrapper(),
           LoginScreen.routeName: (ctx) => const LoginScreen(),
           SignupScreen.routeName: (ctx) => const SignupScreen(),
+          VerifyEmailScreen.routeName: (ctx) => const VerifyEmailScreen(),
         },
         theme: AppTheme.apptheme,
       ),
@@ -44,7 +46,11 @@ class Wrapper extends StatelessWidget {
       builder: (_, AsyncSnapshot<User?> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           final User? user = snapshot.data;
-          return user == null ? const LoginScreen() : const SplashScreen();
+          if (user == null) {
+            return const LoginScreen();
+          } else {
+            return VerifyEmailScreen();
+          }
         } else {
           return const Scaffold(
             body: Center(
