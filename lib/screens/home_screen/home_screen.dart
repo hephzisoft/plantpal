@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import 'package:plantpal/screens/home_screen/widgets/categories.dart';
 
 import '../../config/colors.dart';
+import '../../config/image_string.dart';
+import 'widgets/new_arrival.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -56,20 +59,37 @@ class HomeScreen extends StatelessWidget {
           ),
           // categories section
 
+          SizedBox(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Text('Categories'),
+                    const Spacer(),
+                    TextButton(onPressed: () {}, child: const Text('See all'))
+                  ],
+                ),
+                const Categories(),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
           Container(
-            child: Column(children: [
-              Row(
-                children: [
-                  const Text('Categories'),
-                  const Spacer(),
-                  TextButton(onPressed: () {}, child: const Text('See all'))
-                ],
-              ),
-              const Row(
-                children: [],
-              ),
-            ]),
-          )
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Text('New Arrival'),
+                    const Spacer(),
+                    TextButton(onPressed: () {}, child: const Text('See all'))
+                  ],
+                ),
+                const NewArrival(),
+              ],
+            ),
+          ),
         ],
       ),
     ));

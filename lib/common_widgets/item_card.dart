@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
+import '../config/colors.dart';
 import '../config/image_string.dart';
 
 class ItemCard extends StatelessWidget {
@@ -8,9 +10,47 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.red,
+      elevation: 5,
       child: Column(
         children: [
-          Container(child: Image.asset(seed_image)),
+          Container(
+            decoration: BoxDecoration(
+                color: cardBackgroundColor,
+                borderRadius: BorderRadius.circular(10)),
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(10),
+            child: Image.asset(seed_image),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.all(10),
+            child: const Text(
+              'Plantasfasf',
+              textAlign: TextAlign.left,
+            ),
+            // child: Column(
+            //   children: [
+            //     const Text(
+            //       'Plantasfasf',
+            //       textAlign: TextAlign.left,
+            //     ),
+            //     const Text('Plantasfasf'),
+            //     // Expanded(
+            //     //   child: Row(
+            //     //     children: [
+            //     //       const Text('\$12'),
+            //     //       const Spacer(),
+            //     //       IconButton(
+            //     //         onPressed: () {},
+            //     //         icon: const Icon(IconlyBold.heart),
+            //     //       )
+            //     //     ],
+            //     //   ),
+            //     // ),
+            //   ],
+            // ),
+          )
         ],
       ),
     );
