@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 
 import '../config/colors.dart';
 import '../config/image_string.dart';
@@ -24,7 +23,7 @@ class ItemCard extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: const Text(
               'Plantasfasf',
               textAlign: TextAlign.left,
