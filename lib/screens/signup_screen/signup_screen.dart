@@ -123,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                             ),
                             TextFormField(
-                              keyboardType: TextInputType.visiblePassword,
+                              obscureText:true
                               decoration: const InputDecoration(
                                 labelText: 'Password',
                                 enabledBorder: UnderlineInputBorder(
